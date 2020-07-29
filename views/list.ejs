@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add new</title>
+    <style>
+        #marvelList{text-align: center;}
+        .charactor img{width: 10%; height: 10%; border-radius: 50%}
+    </style>
+</head>
+<body>
+    <div id="marvelList">
+        <% danhsach.forEach(function (marvel) { %>
+        <div class="charactor">
+            <img src="./upload/ <%- marvel.Image%>" alt=""/>
+            <div class="marvelName"><%- marvel.Name%></div>
+            <div class="marvelName"><%- marvel.Level%></div>
+            <div class="button">
+                <a href="./edit <%- marvel._id%>">Edit</a>
+                <a href="./edit <%- marvel._id%>">Deleted</a>
+            </div>
+        </div>
+        <%
+        });
+        %>
+    </div>
+</body>
+</html>
