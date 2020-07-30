@@ -67,7 +67,7 @@ app.post("/add", function (req, res) {
                 if(err) {
                     res.json({"kq": 0, "errMsg": err})
                 } else {
-                    res.json({"kq": 1})
+                    res.redirect("./list")
                 }
             })
         }
@@ -84,4 +84,22 @@ app.get("/list", function (rq, res) {
             res.render("list", {danhsach: data})
         }
     })
+});
+
+//edit
+
+app.get("/edit/:id", function (req, res) {
+
+    Marvel.findOne({id: req.params._id}, function (err, data) {
+        if (err) {
+            res.json({"kq": 0, "errMsg": err})
+        } else {
+            console.log('data', data);
+            res.render("edit", {nhanvat: data})
+        }
+    })
+});
+
+app.post("/edit", function (req, res) {
+    res.send("Update")
 })
