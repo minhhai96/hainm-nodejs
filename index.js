@@ -81,6 +81,7 @@ app.get("/list", function (rq, res) {
         if (err) {
             res.json({"kq": 0, "errMsg": err})
         } else {
+            // console.log('data 123', data);
             res.render("list", {danhsach: data})
         }
     })
@@ -90,12 +91,17 @@ app.get("/list", function (rq, res) {
 
 app.get("/edit/:id", function (req, res) {
 
-    Marvel.findOne({id: req.params._id}, function (err, data) {
+    let id = req.params.id
+
+    console.log('id', id)
+
+    Marvel.findOne({_id: id}, function (err, data) {
         if (err) {
             res.json({"kq": 0, "errMsg": err})
         } else {
             console.log('data', data);
-            res.render("edit", {nhanvat: data})
+            // console.log('res', res.json({}))
+            // res.render("edit", {nhanvat: data})
         }
     })
 });
